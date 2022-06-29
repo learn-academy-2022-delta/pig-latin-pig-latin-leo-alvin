@@ -38,6 +38,38 @@ class App extends Component {
 
       // your code here!
 
+
+// create 2 seperate functions called containsVowel, turnPig
+  // //declare variable containing array of all the vowels
+  // //use inlcudes built in method to return true if a string contains a specified string and pass in a parameter
+  // // 2nd function turnpig takes the string from containsVowel and using charAt method starting from index 0, declared new variable firstLetter assigned value and built in method charAt to return the character at the specific index of my string
+  // //declared new variable firstLetter in if statement to check if my condition is true and return output of string plus 'yay' and else if statement checking for 'hay'
+  // //else statement return using built in method substr which takes a part of a string and concatenated with with charAt + 'ay' to return first word of string in piglatin
+
+  const withVowel = letter => {
+    const vowels = ['a', 'e', 'i', 'o', 'u']
+    if (vowels.includes(letter)) return true
+  }
+  const turnPig = str => {
+    const firstLetter = str.charAt(0)
+    if (withVowel(firstLetter)) {
+      return str + 'yay'
+    }else if(withVowel(firstLetter)) {
+        return str + 'hay'
+    } else {
+      return str.substr(1) + str.charAt(0) + 'ay'
+    }
+  }
+
+
+
+
+
+
+
+
+
+
     //  Rules of Pig Latin
 // For words beginning with a vowel, add "way" to the end.
 // For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".
@@ -57,7 +89,8 @@ let translatePigLatin =(str) =>  {
     if (vowelsArray.indexOf(str[0]) > -1) {
         currentWord = str + "way";
         return currentWord;
-    } else {
+    }
+    else {
         let firstMatch = str.match(/[aeiou]/g) || 0;
         let vowel = str.indexOf(firstMatch[0]);
         currentWord = str.substring(vowel) + str.substring(0, vowel) + "ay";
@@ -65,8 +98,9 @@ let translatePigLatin =(str) =>  {
     }
 }
 console.log(translatePigLatin("apple"))
-//console.log(translatePigLatin(this.state.phrase))
-//console.log(translatePigLatin(this.state.phraseTranslated))
+console.log(translatePigLatin("queen"))
+console.log(translatePigLatin(this.state.phrase))
+console.log(translatePigLatin(this.state.phraseTranslated))
 
       // Remember: console.log is your friend :)
       // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
@@ -87,8 +121,8 @@ console.log(translatePigLatin("apple"))
     // this method restarts the game by setting the original state
     // ACTION ITEM: when you are ready for your full user experience, delete the test words in phrase so that is assigned an empty string
     this.setState({
-      phrase: "alpha through yummy squeal queen fry",
-      phraseTranslated: "This is where your translated sentence will appear."
+      phrase: " ",
+      phraseTranslated: "This is where your translated word will appear"
     })
   }
 
